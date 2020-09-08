@@ -1,8 +1,8 @@
 from django.contrib import admin
-from home.models import Category, Instagram
+from home.models import Service, Category, ConcreteProduct
 
 
-class InstagramAdmin(admin.ModelAdmin):
+class ServiceAdmin(admin.ModelAdmin):
     pass
 
 
@@ -10,5 +10,10 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 
-admin.site.register(Instagram, InstagramAdmin)
+class ConcreteProductAdmin(admin.ModelAdmin):
+    pass
+
+
+admin.site.register(Service, ServiceAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(ConcreteProduct, ConcreteProductAdmin)
