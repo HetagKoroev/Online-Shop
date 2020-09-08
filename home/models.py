@@ -2,7 +2,17 @@ from django.db import models
 
 
 class Category(models.Model):
-    category = models.CharField(max_length=15, blank=False, null=False)
+    category = models.CharField(default='Разное', max_length=15, blank=False, null=False)
+
+    class Meta:
+        verbose_name = "Категория"
+        verbose_name_plural = "Категории"
+
+    def __repr__(self):
+        return self.category
+
+    def __str__(self):
+        return self.category
 
 
 class Product(models.Model):
@@ -13,6 +23,14 @@ class Product(models.Model):
     class Meta:
         abstract = True
 
+    def __repr__(self):
+        return self.name
+
+    def __str__(self):
+        return self.name
+
 
 class Instagram(Product):
-    pass
+    class Meta:
+        verbose_name = "Инстраграм"
+        verbose_name_plural = "Инстраграм"
