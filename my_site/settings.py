@@ -13,7 +13,7 @@ SECRET_KEY = '_xh9x)l_uksw!0pf_*w-5bumspgmsf4$zz3u7-)rqe)=(!*2gk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
