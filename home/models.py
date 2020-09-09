@@ -3,23 +3,23 @@ from django.db import models
 
 class Service(models.Model):
     """ Примеры: Инстаграм, Вконтакте, Youtube и т.п. """
-    service = models.CharField(default='Разное', max_length=15, blank=False, null=False)
+    name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=15, blank=False, null=False)
 
     class Meta:
         verbose_name = "Сервис"
         verbose_name_plural = "Сервисы"
 
     def __repr__(self):
-        return self.service
+        return self.name
 
     def __str__(self):
-        return self.service
+        return self.name
 
 
 class Category(models.Model):
-    service_id = models.ForeignKey(Service, on_delete=models.CASCADE)
-    name = models.CharField(default='Разное', max_length=10)
-    description = models.TextField(blank=True, null=True)
+    service_id = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
+    name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=10)
+    description = models.TextField(verbose_name=u'Описание', blank=True, null=True)
 
     class Meta:
         verbose_name = "Категория"
@@ -33,10 +33,10 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
-    name = models.CharField(default='', max_length=40, blank=False, null=False)
-    price = models.FloatField(blank=False, null=False)
-    description = models.TextField(blank=False, null=True)
+    product_category = models.ForeignKey(Category, verbose_name=u'Категория', on_delete=models.CASCADE)
+    name = models.CharField(verbose_name=u'Наименование', default='', max_length=40, blank=False, null=False)
+    price = models.FloatField(verbose_name=u'Цена', blank=False, null=False)
+    description = models.TextField(verbose_name=u'Описание', blank=False, null=True)
 
     class Meta:
         abstract = True
