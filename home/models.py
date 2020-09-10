@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Service(models.Model):
-    """ Примеры: Инстаграм, Вконтакте, Youtube и т.п. """
+    """ Инстаграм; Вконтакте; Youtube и т.п. """
     name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=15, blank=False, null=False)
 
     class Meta:
@@ -17,6 +17,7 @@ class Service(models.Model):
 
 
 class Category(models.Model):
+    """ Подписчики; Лайки; Просмотры и т.п. """
     service_id = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=10)
     description = models.TextField(verbose_name=u'Описание', blank=True, null=True)
@@ -33,6 +34,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
+    """ 100 мгновенных подписчиков; 1000 лайков; 1000 просмотров и т.п. """
     product_category = models.ForeignKey(Category, verbose_name=u'Категория', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u'Наименование', default='', max_length=40, blank=False, null=False)
     price = models.FloatField(verbose_name=u'Цена', blank=False, null=False)
