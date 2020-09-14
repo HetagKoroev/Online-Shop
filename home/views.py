@@ -5,7 +5,6 @@ from .models import Service, Category, ConcreteProduct
 
 
 def home(request):
-
     context = {'concrete_products': all_concrete_products}
     template = 'index.html'
     return render(request, template_name=template, context=context)
