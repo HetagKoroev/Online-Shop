@@ -506,12 +506,30 @@ mark{
 						<p class="mb-4 pb-2">Услуга</p>
 					</div>
 					<div class="col-xl-10 pb-5">
-						{% for service in services  %}
-							<input class="checkbox-budget" type="radio" name="budget" id="budget-{{ service.id }}" checked="">
-							<label class="for-checkbox-budget" for="budget-{{ service.id }}">
-								<span data-hover="{{ service.name }}">{{ service.name }}</span>
-							</label>
-						{% endfor %}
+						<input class="checkbox-budget" type="radio" name="budget" id="budget-1" checked="">
+						<label class="for-checkbox-budget" for="budget-1">
+							<span data-hover="Просмотры">Просмотры</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-2">
+						<label class="for-checkbox-budget" for="budget-2">							
+							<span data-hover="Подписчики">Подписчики</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-3">
+						<label class="for-checkbox-budget" for="budget-3">							
+							<span data-hover="Лайки">Лайки</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-4">
+						<label class="for-checkbox-budget" for="budget-4">							
+							<span data-hover="Репосты">Репосты</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-5">
+						<label class="for-checkbox-budget" for="budget-5">							
+							<span data-hover="Продвижение">Продвижение</span>
+						</label><!--
+						--><input class="checkbox-budget" type="radio" name="budget" id="budget-6">
+						<label class="for-checkbox-budget" for="budget-6">							
+							<span data-hover="5000$">5000$</span>
+						</label>
 					</div>
 					<div class="col-12 pt-1">
 						<p class="mb-4 pb-2">Продукт</p>

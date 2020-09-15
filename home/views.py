@@ -6,11 +6,15 @@ from .services.logic import get_all_model_objects
 
 
 def home(request):
-    allob = get_all_model_objects(ConcreteProduct)
-    print(allob)
-    context_product = {'concrete_products': allob}
+    services = get_all_model_objects(Service)
+    categories = get_all_model_objects(Category)
+    concrete_products = get_all_model_objects(ConcreteProduct)
+
+    context = {'concrete_products': concrete_products,
+               'services': services,
+               'categories': categories}
     template = 'index.html'
-    return render(request, template_name=template, context=context_product)
+    return render(request, template_name=template, context=context)
 
 
 class Home(View):
