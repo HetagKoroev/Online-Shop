@@ -470,46 +470,22 @@ mark{
 						<p class="mb-4 pb-2">Сервис</p>
 					</div>
 					<div class="col-12 pb-5">
-
-						<input class="checkbox-tools" type="radio" name="tools" id="tool-1" checked="">
-						<label class="for-checkbox-tools" for="tool-1">
-							<i class="uil uil-line-alt"></i>
-							Instagram
-						</label><!--
-						--><input class="checkbox-tools" type="radio" name="tools" id="tool-2">
-						<label class="for-checkbox-tools" for="tool-2">
-							<i class="uil uil-vector-square"></i>
-							Youtube
-						</label><!--
-						--><input class="checkbox-tools" type="radio" name="tools" id="tool-3">
-						<label class="for-checkbox-tools" for="tool-3">
-							<i class="uil uil-ruler"></i>
-							Vkontakte
-						</label><!--
-						--><input class="checkbox-tools" type="radio" name="tools" id="tool-4">
-						<label class="for-checkbox-tools" for="tool-4">
-							<i class="uil uil-crop-alt"></i>
-							Telegram
-						</label><!--
-						--><input class="checkbox-tools" type="radio" name="tools" id="tool-5">
-						<label class="for-checkbox-tools" for="tool-5">
-							<i class="uil uil-brush-alt"></i>
-							Tiktok
-						</label><!--
-						--><input class="checkbox-tools" type="radio" name="tools" id="tool-6">
-						<label class="for-checkbox-tools" for="tool-6">
-							<i class="uil uil-image-resize-landscape"></i>
-							Viber
-						</label>
+						{% for service in services  %}
+							<input class="checkbox-tools" type="radio" name="tools" id="tool-{{ service.id }}" checked="">
+							<label class="for-checkbox-tools" for="tool-{{ service.id }}">
+								<i class="uil uil-line-alt"></i>
+								{{ service.name }}
+							</label>
+						{% endfor %}
 					</div>
 					<div class="col-12 pt-1">
 						<p class="mb-4 pb-2">Услуга</p>
 					</div>
 					<div class="col-xl-10 pb-5">
-						{% for service in services  %}
-							<input class="checkbox-budget" type="radio" name="budget" id="budget-{{ service.id }}" checked="">
-							<label class="for-checkbox-budget" for="budget-{{ service.id }}">
-								<span data-hover="{{ service.name }}">{{ service.name }}</span>
+						{% for category in categories  %}
+							<input class="checkbox-budget" type="radio" name="budget" id="budget-{{ category.id }}" checked="">
+							<label class="for-checkbox-budget" for="budget-{{ category.id }}">
+								<span data-hover="{{ category.name }}">{{ category.name }}</span>
 							</label>
 						{% endfor %}
 					</div>
