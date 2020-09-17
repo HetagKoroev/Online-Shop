@@ -1,7 +1,7 @@
 env/
+venv/
 __pycache__/
 .idea/
 migrations/
 db.sqlite3
-
 
