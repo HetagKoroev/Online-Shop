@@ -6,8 +6,8 @@ class Service(models.Model):
     name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=15, blank=False, null=False)
 
     class Meta:
-        verbose_name = "Сервис"
-        verbose_name_plural = "Сервисы"
+        verbose_name = 'Сервис'
+        verbose_name_plural = 'Сервисы'
 
     def __repr__(self):
         return self.name
@@ -23,33 +23,35 @@ class Category(models.Model):
     description = models.TextField(verbose_name=u'Описание', blank=True, null=True)
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
 
     def __repr__(self):
-        return self.name
+        return f'{self.name} {self.service_id}'
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.service_id}'
 
 
 class Product(models.Model):
     """ 100 мгновенных подписчиков; 1000 лайков; 1000 просмотров и т.п. """
     product_category = models.ForeignKey(Category, verbose_name=u'Категория', on_delete=models.CASCADE)
+    product_service = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u'Наименование', default='', max_length=40, blank=False, null=False)
     price = models.FloatField(verbose_name=u'Цена', blank=False, null=False)
     description = models.TextField(verbose_name=u'Описание', blank=False, null=True)
 
     class Meta:
         abstract = True
-        verbose_name = "Товар"
-        verbose_name_plural = "Товары"
+        verbose_name = 'Товар'
+        verbose_name_plural = 'Товары'
 
     def __repr__(self):
-        return self.name
+        # return f'{self.name} {self.product_service}'
+        return f'{self.name} {self.product_service}'
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.product_service}'
 
 
 class ConcreteProduct(Product):
