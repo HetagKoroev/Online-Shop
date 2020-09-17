@@ -47,7 +47,6 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
 
     def __repr__(self):
-        # return f'{self.name} {self.product_service}'
         return f'{self.name} {self.product_service}'
 
     def __str__(self):
