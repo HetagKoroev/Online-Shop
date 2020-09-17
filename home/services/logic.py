@@ -1,6 +1,3 @@
-from typing import List
-
-
-def get_all_model_objects(model: 'Django model') -> List[tuple]:
+def get_all_model_objects(model: 'Django model') -> 'django.db.models.query.QuerySet':
     all_objects = model.objects.all()
     return all_objects
