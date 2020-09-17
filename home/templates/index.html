@@ -5,17 +5,12 @@
 
   <meta name="robots" content="noindex">
 
-  <link rel="shortcut icon" type="image/x-icon" href="https://static.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico">
-  <link rel="mask-icon" type="" href="https://static.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg" color="#111">
-  <link rel="canonical" href="https://codepen.io/ig_design/pen/dLNKgM">
-  
-  
-  
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.css">
 
   <style class="INLINE_PEN_STYLESHEET_ID">
-    
+
 
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&subset=devanagari,latin-ext');
@@ -463,7 +458,6 @@ mark{
 						{% for service in services  %}
 							<input class="checkbox-services" type="radio" name="services" id="servece-{{ service.id }}" checked="">
 							<label class="for-checkbox-services" for="servece-{{ service.id }}">
-<!--								<i class="uil uil-line-alt"></i>-->
 								{{ service.name }}
 							</label>
 						{% endfor %}
@@ -486,7 +480,6 @@ mark{
 						{% for  product in concrete_products %}
 							<input class="checkbox-product" type="radio" name="product" id="product-{{ product.id }}">
 							<label class="for-checkbox-product" for="product-{{ product.id }}">
-<!--								<i class="uil uil-coffee mr-3">-->
 								<span class="text">{{ product.name }}</span>
 							</label>
 						{% endfor %}
