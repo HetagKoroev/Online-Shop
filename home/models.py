@@ -13,7 +13,7 @@ class Service(models.Model):
         return self.name
 
     def __str__(self):
-        return self.name
+        return str(self.id)
 
 
 class Category(models.Model):
@@ -27,10 +27,10 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def __repr__(self):
-        return self.name
+        return str(self.name)
 
     def __str__(self):
-        return self.name
+        return str(self.id)
 
 
 class Product(models.Model):

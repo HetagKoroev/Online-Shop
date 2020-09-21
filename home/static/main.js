@@ -8,7 +8,7 @@ document.querySelectorAll('.service-item').forEach(service => {
 			} else {
                      category.classList.remove('show')
                      document.querySelectorAll('.product-item').forEach(product => {
-                        product.classList.remove('show')
+                     product.classList.remove('show')
                      })
 			       }
 		})
@@ -20,7 +20,9 @@ document.querySelectorAll('.category-item').forEach(category => {
 	category.addEventListener('click', (e) => {
 		document.querySelector('.products').classList.add('show')
 		document.querySelectorAll('.product-item').forEach(product => {
-			if(product.dataset.myid === category.dataset.myid) {
+		console.log(product.dataset.category)
+		console.log(category.dataset.myid)
+			if(product.dataset.category === category.dataset.myid) {
 				product.classList.add('show')
 			} else {
 			        product.classList.remove('show')
