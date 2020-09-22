@@ -18,7 +18,7 @@ class Service(models.Model):
 
 class Category(models.Model):
     """ Подписчики; Лайки; Просмотры и т.п. """
-    # service_id = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
+    service_id = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u'Наименование', default='Разное', max_length=10)
     description = models.TextField(verbose_name=u'Описание', blank=True, null=True)
 

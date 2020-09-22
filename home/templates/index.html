@@ -40,7 +40,7 @@
 				</div>
 				<div class="col-xl-10 pb-5">
 					{% for category in categories  %}
-					<div class="category-item" data-myid="{{ category.id }}">
+					<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id }}">
 						<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
 						<label class="for-checkbox-category" for="category-{{ category.id }}">
 							<span data-hover="{{ category.name }}">{{ category.name }}</span>

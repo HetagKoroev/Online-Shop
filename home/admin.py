@@ -3,15 +3,15 @@ from home.models import Service, Category, ConcreteProduct
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'name',)
 
 
 class CategoryAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'name',)
 
 
 class ConcreteProductAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'name',)
 
 
 admin.site.register(Service, ServiceAdmin)
