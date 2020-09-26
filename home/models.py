@@ -24,7 +24,7 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def __str__(self):
-        return self.name
+        return f'{self.name} {self.service_id}'
 
 
 class Product(models.Model):
@@ -39,7 +39,6 @@ class Product(models.Model):
         abstract = True
         verbose_name = 'Товар'
         verbose_name_plural = 'Товары'
-
 
     def __str__(self):
         return f'{self.name} {self.service_id}'
