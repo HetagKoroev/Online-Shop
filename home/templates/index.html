@@ -40,7 +40,7 @@
 				</div>
 				<div class="col-xl-10 pb-5">
 					{% for category in categories  %}
-					<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id }}">
+					<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id.pk }}">
 						<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
 						<label class="for-checkbox-category" for="category-{{ category.id }}">
 							<span data-hover="{{ category.name }}">{{ category.name }}</span>
@@ -55,7 +55,7 @@
 				</div>
 				<div class="col-12 pb-5">
 					{% for  product in concrete_products %}
-					<div class="product-item" data-myid="{{ product.id }}" data-category="{{ product.category_id }}" data-service="{{ product.service_id }}">
+					<div class="product-item" data-myid="{{ product.id }}" data-category="{{ product.category_id.pk }}" data-service="{{ product.service_id.pk }}">
 						<input class="checkbox-product" type="radio" name="product" id="product-{{ product.id }}">
 						<label class="for-checkbox-product" for="product-{{ product.id }}">
 							<span class="text">{{ product.name }}</span>
