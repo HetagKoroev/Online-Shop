@@ -32,8 +32,8 @@ class Product(models.Model):
     category_id = models.ForeignKey(Category, verbose_name=u'Категория', on_delete=models.CASCADE)
     service_id = models.ForeignKey(Service, verbose_name=u'Сервис', on_delete=models.CASCADE)
     name = models.CharField(verbose_name=u'Наименование', default='', max_length=40, blank=False, null=False)
-    price = models.FloatField(verbose_name=u'Цена', blank=False, null=False)
-    description = models.TextField(verbose_name=u'Описание', blank=False, null=True)
+    price = models.FloatField(verbose_name=u'Цена')
+    description = models.TextField(verbose_name=u'Описание')
 
     class Meta:
         abstract = True

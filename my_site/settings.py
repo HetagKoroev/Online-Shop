@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,7 +23,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'home.apps.HomeConfig',
+    'registration.apps.RegistrationConfig',
+
 ]
 
 MIDDLEWARE = [
@@ -37,11 +41,14 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'my_site.urls'
 
+TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "home\\templates\\")
+print(TEMPLATE_DIR, 'path')
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['home/templates'],
-        'APP_DIRS': True,
+        'DIRS': TEMPLATE_DIR,
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
