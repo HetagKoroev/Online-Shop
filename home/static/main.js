@@ -31,3 +31,20 @@ document.querySelectorAll('.category-item').forEach(category => {
 		})
 	})
 })
+
+if (document.querySelector('.change-theme').checked === true) {
+	document.body.classList.add('light');
+} else {
+	document.body.classList.add('dark');
+}
+
+document.querySelector('.change-theme').addEventListener('click' , (e) => {
+	if(e.target.checked === true) {
+		document.body.classList.add('light');
+		document.body.classList.remove('dark');
+
+		return;
+	}
+	document.body.classList.add('dark');
+	document.body.classList.remove('light');
+})
