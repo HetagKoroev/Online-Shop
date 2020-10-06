@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.css">
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 
+{% block content %}
 <body>
 <div class="section over-hide z-bigger">
 	<input class="checkbox change-theme" type="checkbox" name="general" id="general">
@@ -65,4 +66,5 @@
 </div>
 <script type="text/javascript" src="{% static 'main.js' %}"></script>
 </body>
+{% endblock %}
 </html>
