@@ -42,7 +42,6 @@ document.querySelector('.change-theme').addEventListener('click' , (e) => {
 	if(e.target.checked === true) {
 		document.body.classList.add('light');
 		document.body.classList.remove('dark');
-
 		return;
 	}
 	document.body.classList.add('dark');
