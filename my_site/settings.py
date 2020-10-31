@@ -26,7 +26,6 @@ INSTALLED_APPS = [
 
     'home.apps.HomeConfig',
     'registration.apps.RegistrationConfig',
-
 ]
 
 MIDDLEWARE = [

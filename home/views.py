@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import Service, Category, ConcreteProduct
-from .services.logic import _get_all_model_objects
+from services.logic import _get_all_model_objects
 
 
 def home(request: HttpRequest) -> HttpResponse:
