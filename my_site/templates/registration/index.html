@@ -6,6 +6,9 @@
 			<div class="col-12 pt-5">
 				<p class="mb-4 pb-2 section-title">Регистрация</p>
 			</div>
-
 		</div>
+		<form method="POST" class="post-form">{% csrf_token %}
+			{{ form.as_p }}
+			<button type="submit" class="save btn btn-default">Регистрация</button>
+		</form>
 	{% endblock%}

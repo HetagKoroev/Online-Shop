@@ -446,6 +446,13 @@ mark{
 	display: block;
 }
 
+#reg-button {
+  width: 160px;
+  margin-left: 1005px;
+  margin-top: 45px;
+}
+
+
 /* registration */
 
 #reg-head {
