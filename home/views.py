@@ -15,5 +15,3 @@ def home(request: HttpRequest) -> HttpResponse:
 
     template = r'home\index.html'
     return render(request, template_name=template, context=context)
-
-
