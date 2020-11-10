@@ -4,7 +4,6 @@ from registration.forms import RegistrationFrom
 
 
 def registration(request: HttpRequest) -> HttpResponse:
-    print(request.method)
     if request.method == 'GET':
         form = RegistrationFrom()
         template = r'registration\index.html'

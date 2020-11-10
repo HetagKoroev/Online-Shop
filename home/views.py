@@ -1,5 +1,5 @@
 from typing import Union
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import Service, Category, ConcreteProduct
 from services.logic import get_all_objects_from_model
