@@ -6,7 +6,6 @@ from services.logic import get_all_objects_from_model
 
 
 def home(request: HttpRequest) -> Union[HttpResponse, None]:
-    print(request.path)
     if request.method == 'GET':
         services = get_all_objects_from_model(Service)
         categories = get_all_objects_from_model(Category)
