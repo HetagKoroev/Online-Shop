@@ -1,11 +1,8 @@
 {% extends 'home/index.html' %}
+
 	{% block content %}
-		<div class="section over-hide z-bigger">
-			<input class="checkbox change-theme" type="checkbox" name="general" id="general">
-			<label class="for-checkbox" for="general"></label>
-			<div class="col-12 pt-5">
-				<p class="mb-4 pb-2 section-title">Регистрация</p>
-			</div>
+		<div class="col-12 pt-5">
+			<p class="mb-4 pb-2 section-title">Регистрация</p>
 		</div>
 		<form method="POST" class="post-form">{% csrf_token %}
 			{{ form.as_p }}

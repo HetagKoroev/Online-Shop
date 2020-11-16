@@ -11,7 +11,6 @@
 
 
 	<body>
-		{% block content %}
 			<div class="section over-hide z-bigger">
 
 <!--				<div class="col-12 pb-5 d-flex justify-content-center">-->
@@ -20,63 +19,64 @@
 <!--						Регистрация-->
 <!--					</label>-->
 <!--				</div>-->
-				<a class="btn btn-primary" href="/registration/">Регистрация</a>
-
 
 				<input class="checkbox change-theme" type="checkbox" name="general" id="general">
-				<label class="for-checkbox" for="general"></label>
+								<label class="for-checkbox" for="general"></label>
 				<div class="section over-hide z-bigger">
-					<div class="container pb-5">
-						<div class="services">
-							<div class="col-12 pt-5">
-								<p class="mb-4 pb-2 section-title">Сервис</p>
+
+		{% block content %}
+			<a class="btn btn-primary" href="/registration/">Регистрация</a>
+			<div class="container pb-5">
+				<div class="services">
+					<div class="col-12 pt-5">
+						<p class="mb-4 pb-2 section-title">Сервис</p>
+					</div>
+					<div class="col-12 pb-5 d-flex justify-content-center">
+						{% for service in services  %}
+							<div class="service-item" data-myid="{{ service.id }}">
+								<input class="checkbox-services" type="radio" name="services" checked="" id="service-{{ service.id }}">
+								<label class="for-checkbox-services" for="service-{{ service.id }}">
+									{{ service.name }}
+								</label>
 							</div>
-							<div class="col-12 pb-5 d-flex justify-content-center">
-								{% for service in services  %}
-									<div class="service-item" data-myid="{{ service.id }}">
-										<input class="checkbox-services" type="radio" name="services" checked="" id="service-{{ service.id }}">
-										<label class="for-checkbox-services" for="service-{{ service.id }}">
-											{{ service.name }}
-										</label>
-									</div>
-								{% endfor %}
+						{% endfor %}
+					</div>
+				</div>
+				<div class="categories">
+					<div class="col-12 pt-1">
+						<p class="mb-4 pb-2 section-title">Категория</p>
+					</div>
+					<div class="col-xl-10 pb-5">
+						{% for category in categories  %}
+							<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id.pk }}">
+								<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
+								<label class="for-checkbox-category" for="category-{{ category.id }}">
+									<span data-hover="{{ category.name }}">{{ category.name }}</span>
+								</label>
 							</div>
-						</div>
-						<div class="categories">
-							<div class="col-12 pt-1">
-								<p class="mb-4 pb-2 section-title">Категория</p>
+						{% endfor %}
+					</div>
+				</div>
+				<div class="products">
+					<div class="col-12 pt-1">
+						<p class="mb-4 pb-2 section-title">Товар</p>
+					</div>
+					<div class="col-12 pb-5">
+						{% for  product in concrete_products %}
+							<div class="product-item" data-myid="{{ product.id }}" data-category="{{ product.category_id.pk }}" data-service="{{ product.service_id.pk }}">
+								<input class="checkbox-product" type="radio" name="product" id="product-{{ product.id }}">
+								<label class="for-checkbox-product" for="product-{{ product.id }}">
+									<span class="text">{{ product.name }}</span>
+								</label>
 							</div>
-							<div class="col-xl-10 pb-5">
-								{% for category in categories  %}
-									<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id.pk }}">
-										<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
-										<label class="for-checkbox-category" for="category-{{ category.id }}">
-											<span data-hover="{{ category.name }}">{{ category.name }}</span>
-										</label>
-									</div>
-								{% endfor %}
-							</div>
-						</div>
-						<div class="products">
-							<div class="col-12 pt-1">
-								<p class="mb-4 pb-2 section-title">Товар</p>
-							</div>
-							<div class="col-12 pb-5">
-								{% for  product in concrete_products %}
-									<div class="product-item" data-myid="{{ product.id }}" data-category="{{ product.category_id.pk }}" data-service="{{ product.service_id.pk }}">
-										<input class="checkbox-product" type="radio" name="product" id="product-{{ product.id }}">
-										<label class="for-checkbox-product" for="product-{{ product.id }}">
-											<span class="text">{{ product.name }}</span>
-										</label>
-									</div>
-								{% endfor %}
-							</div>
-						</div>
+						{% endfor %}
 					</div>
 				</div>
 			</div>
+		</div>
+	</div>
 		{% endblock %}
-		<script type="text/javascript" src="{% static 'main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'main.js' %}"></script>
 	</body>
 
 </html>
