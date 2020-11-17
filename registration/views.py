@@ -9,6 +9,5 @@ def registration(request: HttpRequest) -> HttpResponse:
         template = r'registration\index.html'
         return render(request, template, {'form': form})
     if request.method == 'POST':
-        for x in request.POST.items():
-            print(x)
+        print(request.POST.dict())
         return redirect('home')

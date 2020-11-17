@@ -43,8 +43,6 @@ ROOT_URLCONF = 'my_site.urls'
 
 TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
-print('Templates path: ', TEMPLATE_DIR)
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
