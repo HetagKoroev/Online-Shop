@@ -3,6 +3,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import Platform, Category, ConcreteService
 from services.logic import get_all_objects_from_model
+from django.contrib.auth.models import User
 
 
 def home(request: HttpRequest) -> Union[HttpResponse, None]:
