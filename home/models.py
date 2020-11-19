@@ -24,7 +24,7 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def __str__(self):
-        return f'{self.name} {self.service_id}'
+        return f'{self.name} {self.platform_id}'
 
 
 class Service(models.Model):
@@ -34,6 +34,7 @@ class Service(models.Model):
     name = models.CharField(verbose_name=u'Наименование', default='', max_length=40, blank=False, null=False)
     price = models.FloatField(verbose_name=u'Цена')
     description = models.TextField(verbose_name=u'Описание')
+    api_id = models.CharField(verbose_name=u'ID сервиса', unique=True, max_length=40, null=False, blank=False)
 
     class Meta:
         abstract = True

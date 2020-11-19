@@ -1,16 +1,16 @@
-document.querySelectorAll('.service-item').forEach(service => {
-	service.addEventListener('click', (e) => {
+document.querySelectorAll('.platform-item').forEach(platform => {
+	platform.addEventListener('click', (e) => {
 		document.querySelector('.categories').classList.add('show')
 		document.querySelectorAll('.category-item').forEach(category => {
 		    try{document.getElementById(category.id).checked = false} catch (e) {console.log(e)}
-			if(category.dataset.service === service.dataset.myid) {
+			if(category.dataset.platform === platform.dataset.myid) {
 				category.classList.add('show')
 				try{document.getElementById(category.id).checked = false} catch (e) {console.log(e)}
 			} else {
 			        try{document.getElementById(category.id).checked = false} catch (e) {console.log(e)}
                      category.classList.remove('show')
-                     document.querySelectorAll('.product-item').forEach(product => {
-                     product.classList.remove('show')
+                     document.querySelectorAll('.service-item').forEach(service => {
+                     service.classList.remove('show')
                      })
 			       }
 		})
@@ -20,13 +20,13 @@ document.querySelectorAll('.service-item').forEach(service => {
 
 document.querySelectorAll('.category-item').forEach(category => {
 	category.addEventListener('click', (e) => {
-		document.querySelector('.products').classList.add('show')
-		document.querySelectorAll('.product-item').forEach(product => {
-			if(product.dataset.category === category.dataset.myid && category.dataset.service === product.dataset.service) {
+		document.querySelector('.services').classList.add('show')
+		document.querySelectorAll('.service-item').forEach(service => {
+			if(service.dataset.category === category.dataset.myid && category.dataset.platform === service.dataset.platform) {
 
-				product.classList.add('show')
+				service.classList.add('show')
 			} else {
-			        product.classList.remove('show')
+			        service.classList.remove('show')
 			       }
 		})
 	})

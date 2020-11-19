@@ -19,8 +19,8 @@
 		{% endif %}
 <!--				Кнопка в общем стиле-->
 <!--				<div class="col-12 pb-5 d-flex justify-content-center">-->
-<!--					<input class="checkbox-services" type="radio" name="reg" checked="" formmethod="post">-->
-<!--					<label class="reg-for-checkbox-services" for="reg-button" id="reg-button">-->
+<!--					<input class="checkbox-platforms" type="radio" name="reg" checked="" formmethod="post">-->
+<!--					<label class="reg-for-checkbox-platforms" for="reg-button" id="reg-button">-->
 <!--						Регистрация-->
 <!--					</label>-->
 <!--				</div>-->
@@ -32,16 +32,16 @@
 			{% block content %}
 				<a class="btn btn-primary" href="/registration/">Регистрация</a>
 				<div class="container pb-5">
-					<div class="services">
+					<div class="platforms">
 						<div class="col-12 pt-5">
 							<p class="mb-4 pb-2 section-title">Платформа</p>
 						</div>
 						<div class="col-12 pb-5 d-flex justify-content-center">
-							{% for service in services  %}
-								<div class="service-item" data-myid="{{ service.id }}">
-									<input class="checkbox-services" type="radio" name="services" checked="" id="service-{{ service.id }}">
-									<label class="for-checkbox-services" for="service-{{ service.id }}">
-										{{ service.name }}
+							{% for platform in platforms  %}
+								<div class="platform-item" data-myid="{{ platform.id }}">
+									<input class="checkbox-platforms" type="radio" name="platforms" checked="" id="platform-{{ platform.id }}">
+									<label class="for-checkbox-platforms" for="platform-{{ platform.id }}">
+										{{ platform.name }}
 									</label>
 								</div>
 							{% endfor %}
@@ -53,7 +53,7 @@
 						</div>
 						<div class="col-xl-10 pb-5">
 							{% for category in categories  %}
-								<div class="category-item" data-myid="{{ category.id }}" data-service="{{ category.service_id.pk }}">
+								<div class="category-item" data-myid="{{ category.id }}" data-platform="{{ category.platform_id.pk }}">
 									<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
 									<label class="for-checkbox-category" for="category-{{ category.id }}">
 										<span data-hover="{{ category.name }}">{{ category.name }}</span>
@@ -62,16 +62,16 @@
 							{% endfor %}
 						</div>
 					</div>
-					<div class="products">
+					<div class="services">
 						<div class="col-12 pt-1">
 							<p class="mb-4 pb-2 section-title">Сервис</p>
 						</div>
 						<div class="col-12 pb-5">
-							{% for  product in concrete_products %}
-								<div class="product-item" data-myid="{{ product.id }}" data-category="{{ product.category_id.pk }}" data-service="{{ product.service_id.pk }}">
-									<input class="checkbox-product" type="radio" name="product" id="product-{{ product.id }}">
-									<label class="for-checkbox-product" for="product-{{ product.id }}">
-										<span class="text">{{ product.name }}</span>
+							{% for service in concrete_services %}
+								<div class="service-item" data-myid="{{ service.id }}" data-category="{{ service.category_id.pk }}" data-platform="{{ service.platform_id.pk }}">
+									<input class="checkbox-service" type="radio" name="service" id="service-{{ service.id }}">
+									<label class="for-checkbox-service" for="service-{{ service.id }}">
+										<span class="text">{{ service.name }}</span>
 									</label>
 								</div>
 							{% endfor %}

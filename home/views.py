@@ -7,11 +7,11 @@ from services.logic import get_all_objects_from_model
 
 def home(request: HttpRequest) -> Union[HttpResponse, None]:
     if request.method == 'GET':
-        platform = get_all_objects_from_model(Platform)
+        platforms = get_all_objects_from_model(Platform)
         categories = get_all_objects_from_model(Category)
         concrete_services = get_all_objects_from_model(ConcreteService)
 
-        context = {'platform': platform,
+        context = {'platforms': platforms,
                    'categories': categories,
                    'concrete_services': concrete_services
                    }
