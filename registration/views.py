@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from django.http import HttpRequest, HttpResponse
 from django.contrib import messages
 from .forms import CustomUserCreationForm
-from django.contrib.auth.models import User
 
 
 def registration(request: HttpRequest) -> HttpResponse:

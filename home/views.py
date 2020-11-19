@@ -1,19 +1,20 @@
 from typing import Union
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
-from .models import Service, Category, ConcreteProduct
+from .models import Platform, Category, ConcreteService
 from services.logic import get_all_objects_from_model
 
 
 def home(request: HttpRequest) -> Union[HttpResponse, None]:
     if request.method == 'GET':
-        services = get_all_objects_from_model(Service)
+        platform = get_all_objects_from_model(Platform)
         categories = get_all_objects_from_model(Category)
-        concrete_products = get_all_objects_from_model(ConcreteProduct)
+        concrete_services = get_all_objects_from_model(ConcreteService)
 
-        context = {'concrete_products': concrete_products,
-                   'services': services,
-                   'categories': categories}
+        context = {'platform': platform,
+                   'categories': categories,
+                   'concrete_services': concrete_services
+                   }
 
         template = r'home\index.html'
         return render(request, template_name=template, context=context)
