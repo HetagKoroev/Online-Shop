@@ -24,8 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'home.apps.HomeConfig',
-    'registration.apps.RegistrationConfig',
-    'rest_framework'
+    'registration.apps.RegistrationConfig'
 ]
 
 MIDDLEWARE = [
@@ -115,6 +114,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = '/home/static/'
+STATIC_ROOT = BASE_DIR / 'home/static/'
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
