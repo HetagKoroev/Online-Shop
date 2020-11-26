@@ -39,12 +39,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'my_site.urls'
 
-TEMPLATE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATE_DIR],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,6 +113,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_ROOT = BASE_DIR / 'home/static/'
+STATIC_ROOT = BASE_DIR / 'static/'
 STATIC_URL = '/static/'
 LOGIN_REDIRECT_URL = '/'
