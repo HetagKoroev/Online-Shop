@@ -1,4 +1,4 @@
-from typing import Union, Type
+from typing import Union
 from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from .models import Platform, Category, ConcreteService
