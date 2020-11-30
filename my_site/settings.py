@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -114,11 +115,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_ROOT = BASE_DIR / 'home/static/'
-
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
-
 STATIC_URL = '/static/'
+
 LOGIN_REDIRECT_URL = '/'
 
+# 420 = 7 минут
+SESSION_EXPIRE_SECONDS = 420
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+# TODO: редирект на страницу login
+SESSION_TIMEOUT_REDIRECT = 'home'
