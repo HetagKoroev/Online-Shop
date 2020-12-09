@@ -1,17 +1,17 @@
 from django.contrib import admin
-from home.models import Service, Category, ConcreteProduct
+from home.models import Platform, Category, ConcreteService
 
 
-@admin.register(Service)
-class ServiceAdmin(admin.ModelAdmin):
+@admin.register(Platform)
+class PlatformAdmin(admin.ModelAdmin):
     list_display = ('name', 'id')
 
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('name', 'id', 'service_id')
+    list_display = ('name', 'id', 'platform_id')
 
 
-@admin.register(ConcreteProduct)
-class ConcreteProductAdmin(admin.ModelAdmin):
-    list_display = ('name', 'id', 'category_id', 'service_id')
+@admin.register(ConcreteService)
+class ConcreteServiceAdmin(admin.ModelAdmin):
+    list_display = ('name', 'id', 'category_id', 'platform_id')

@@ -1,0 +1,86 @@
+<html lang="ru" class=""><head>
+	<meta charset="UTF-8">
+	<title>My Site</title>
+	<meta name="robots" content="noindex">
+
+	{% load static %}
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1462889/unicons.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+
+	<body>
+		{% if messages %}
+		<ul>
+			{% for message in messages %}
+			<li>{{ message }}</li>
+			{% endfor %}
+		</ul>
+		{% endif %}
+<!--				Кнопка в общем стиле-->
+<!--				<div class="col-12 pb-5 d-flex justify-content-center">-->
+<!--					<input class="checkbox-platforms" type="radio" name="reg" checked="" formmethod="post">-->
+<!--					<label class="reg-for-checkbox-platforms" for="reg-button" id="reg-button">-->
+<!--						Регистрация-->
+<!--					</label>-->
+<!--				</div>-->
+		<div class="section over-hide z-bigger">
+			<div class="section change-theme">
+				<input class="checkbox change-theme" type="checkbox" name="general" id="general">
+				<label class="for-checkbox" for="general"></label>
+			</div>
+			{% block content %}
+				<a class="btn btn-primary" href="/registration/">Регистрация</a>
+				<div class="container pb-5">
+					<div class="platforms">
+						<div class="col-12 pt-5">
+							<p class="mb-4 pb-2 section-title">Платформа</p>
+						</div>
+						<div class="col-12 pb-5 d-flex justify-content-center">
+							{% for platform in platforms  %}
+								<div class="platform-item" data-myid="{{ platform.id }}">
+									<input class="checkbox-platforms" type="radio" name="platforms" checked="" id="platform-{{ platform.id }}">
+									<label class="for-checkbox-platforms" for="platform-{{ platform.id }}">
+										{{ platform.name }}
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="categories">
+						<div class="col-12 pt-1">
+							<p class="mb-4 pb-2 section-title">Категория</p>
+						</div>
+						<div class="col-xl-10 pb-5">
+							{% for category in categories  %}
+								<div class="category-item" data-myid="{{ category.id }}" data-platform="{{ category.platform_id.pk }}">
+									<input class="checkbox-category" type="radio" name="category" checked="" id="category-{{ category.id }}">
+									<label class="for-checkbox-category" for="category-{{ category.id }}">
+										<span data-hover="{{ category.name }}">{{ category.name }}</span>
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+					<div class="services">
+						<div class="col-12 pt-1">
+							<p class="mb-4 pb-2 section-title">Сервис</p>
+						</div>
+						<div class="col-12 pb-5">
+							{% for service in concrete_services %}
+								<div class="service-item" data-myid="{{ service.id }}" data-category="{{ service.category_id.pk }}" data-platform="{{ service.platform_id.pk }}">
+									<input class="checkbox-service" type="radio" name="service" id="service-{{ service.id }}">
+									<label class="for-checkbox-service" for="service-{{ service.id }}">
+										<span class="text">{{ service.name }}</span>
+									</label>
+								</div>
+							{% endfor %}
+						</div>
+					</div>
+				</div>
+			{% endblock %}
+		</div>
+		<script type="text/javascript" src="{% static 'main.js' %}"></script>
+	</body>
+
+</html>

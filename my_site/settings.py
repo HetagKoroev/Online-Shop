@@ -1,19 +1,19 @@
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '_xh9x)l_uksw!0pf_*w-5bumspgmsf4$zz3u7-)rqe)=(!*2gk'
+
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1', '192.168.2.14']
+ALLOWED_HOSTS = ['192.168.1.6', '127.0.0.1', '192.168.2.15']
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -22,12 +22,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'home.apps.HomeConfig',
+    'registration.apps.RegistrationConfig'
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -37,10 +40,11 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'my_site.urls'
 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['home/templates'],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -85,6 +89,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
@@ -103,4 +114,16 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+STATIC_ROOT = BASE_DIR / 'home/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/'
+
+# 420 = 7 минут
+SESSION_EXPIRE_SECONDS = 420
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+# TODO: редирект на страницу login
+SESSION_TIMEOUT_REDIRECT = 'home'
